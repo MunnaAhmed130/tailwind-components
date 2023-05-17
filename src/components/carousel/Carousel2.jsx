@@ -51,7 +51,7 @@ const Carousel2 = (autoSlide) => {
   ];
 
   return (
-    <div className="h-screen w-full max-w-full relative group transition duration-1000 ">
+    <div className="h-screen w-full max-w-full relative group   ">
       {bannerImg.map((banner, i) => (
         <>
           <div

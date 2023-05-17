@@ -25,7 +25,7 @@ const Carousel2 = (autoSlide) => {
     if (!autoSlide) return;
     const slideInterval = setInterval(nextSlide, 3000);
     return () => clearInterval(slideInterval);
-  }, []);
+  }, [currentIndex]);
 
   const bannerImg = [
     {

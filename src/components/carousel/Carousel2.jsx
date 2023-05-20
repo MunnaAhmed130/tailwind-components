@@ -3,29 +3,25 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 
 const Carousel2 = (autoSlide) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [curr, setCurr] = useState(0);
 
   const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? bannerImg.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setCurr((curr) => (curr === 0 ? bannerImg.length - 1 : curr - 1));
   };
 
   const nextSlide = () => {
-    const isLastSlide = currentIndex === bannerImg.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setCurr((curr) => (curr === bannerImg.length - 1 ? 0 : curr + 1));
   };
 
   const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
+    setCurr(slideIndex);
   };
 
   useEffect(() => {
     if (!autoSlide) return;
     const slideInterval = setInterval(nextSlide, 3000);
     return () => clearInterval(slideInterval);
-  }, [currentIndex]);
+  }, [curr]);
 
   const bannerImg = [
     {
@@ -59,13 +55,13 @@ const Carousel2 = (autoSlide) => {
             style={{
               backgroundImage: `url(${banner.src})`,
             }}
-            className={` ${i !== currentIndex ? `hidden` : `animate-fade`}
+            className={` ${i !== curr ? `hidden` : `animate-fade`}
             h-full w-full bg-cover bg-center absolute top-0  `}
           ></div>
           {banner.text && (
             <div
               className={`${
-                i !== currentIndex && `hidden`
+                i !== curr && `hidden`
               } absolute flex flex-col gap-3 w-2/4 translate-x-[50%] text-center h-full items-center justify-center`}
             >
               <h3 className="text-4xl font-semibold">{banner.text.title}</h3>
@@ -94,7 +90,7 @@ const Carousel2 = (autoSlide) => {
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
             className={`${
-              slideIndex === currentIndex ? `text-[#b3b3b3]` : `text-[#979797]`
+              slideIndex === curr ? `text-[#b3b3b3]` : `text-[#979797]`
             }   text-2xl cursor-pointer `}
           >
             <RxDotFilled className="" />

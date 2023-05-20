@@ -1,24 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
+
+// about project
+// this code will give a bootstrap fade style carousel
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [curr, setCurr] = useState(0);
+  const [last, setLast] = useState();
+  const autoSlide = true;
+
   const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? bannerImg.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setLast(curr);
+    const newIndex = curr === 0 ? bannerImg.length - 1 : curr - 1;
+    setCurr(newIndex);
   };
 
   const nextSlide = () => {
-    const isLastSlide = currentIndex === bannerImg.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setLast(curr);
+    const newIndex = curr === bannerImg.length - 1 ? 0 : curr + 1;
+    setCurr(newIndex);
   };
 
   const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
+    setLast(curr);
+    setCurr(slideIndex);
   };
+
+  useEffect(() => {
+    if (!autoSlide) return;
+    const slideInterval = setInterval(nextSlide, 3000);
+    return () => clearInterval(slideInterval);
+  }, [curr]);
 
   const bannerImg = [
     {
@@ -45,12 +57,19 @@ const Carousel = () => {
 
   return (
     <div className="h-screen w-full max-w-full relative group transition duration-1000">
-      <div
-        style={{
-          backgroundImage: `url(${bannerImg[currentIndex].src})`,
-        }}
-        className="h-full w-full bg-cover bg-center absolute  duration-1000"
-      ></div>
+      {bannerImg.map((banner, i) => (
+        <div
+          key={banner.src}
+          style={{
+            backgroundImage: `url(${banner.src})`,
+          }}
+          className={` absolute ${
+            i == curr ? "animate-fade opacity-100" : "opacity-0"
+          }
+          }  ${i == last && "animate-fadeOut opacity-0"}
+          }  min-w-full h-screen bg-cover bg-center w-full transition `}
+        />
+      ))}
 
       <div
         className="hidden group-hover:block group-hover:transition group-hover:duration-1000 absolute top-[50%] -translate-x-0 translate-y-[-50%]  left-5 cursor-pointer transition-all duration-1000 bg-[#ffffff]/10 p-3 rounded-full"
@@ -65,15 +84,18 @@ const Carousel = () => {
       >
         <BsChevronRight className="w-5 h-5" />
       </div>
-      <div className="flex top-4 justify-center py-2">
+
+      <div className="flex absolute bottom-4 items-center justify-center py-2 w-full">
         {bannerImg.map((banner, slideIndex) => (
           <div
-            key={slideIndex}
+            key={`banner${slideIndex}`}
             onClick={() => goToSlide(slideIndex)}
-            className="text-2xl cursor-pointer"
-          >
-            <RxDotFilled />
-          </div>
+            // className="text-2xl cursor-pointer text-white z-10"
+            className={`transition-all w-5 h-1 bg-white rounded-full z-10 m-1  ${
+              curr === slideIndex ? "bg-white" : "bg-opacity-60"
+            }
+          `}
+          />
         ))}
       </div>
     </div>

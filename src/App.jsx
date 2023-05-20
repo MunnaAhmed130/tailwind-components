@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <Carousel />
-      <Carousel2 />
-      <Carousel3 />
-      <FinalProject />
+      {/* <Carousel2 /> */}
+      {/* <Carousel3 /> */}
+      {/* <FinalProject /> */}
     </>
   );
 }

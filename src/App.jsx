@@ -10,7 +10,7 @@ function App() {
       <Carousel />
       {/* <Carousel2 /> */}
       {/* <Carousel3 /> */}
-      {/* <FinalProject /> */}
+      <FinalProject />
     </>
   );
 }

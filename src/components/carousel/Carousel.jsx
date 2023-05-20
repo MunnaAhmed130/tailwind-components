@@ -9,7 +9,7 @@ import BannerInfo from "./BannerInfo";
 const Carousel = () => {
   const [curr, setCurr] = useState(0);
   const [last, setLast] = useState();
-  const fade = false;
+  const fade = true;
 
   const prevSlide = () => {
     setLast(curr);
@@ -55,6 +55,26 @@ const Carousel = () => {
             last={last}
             fade={fade}
           />
+          // <div
+          //   key={banner.src}
+          //   style={{
+          //     backgroundImage: `url(${banner.src})`,
+          //   }}
+          //   className={`${fade && "absolute"} ${
+          //     fade && `${i == curr ? "animate-fade" : "opacity-0"}`
+          //   }  ${
+          //     fade && `${i == last && "animate-fadeOut"}`
+          //   }  min-w-full h-screen bg-cover bg-center w-full transition `}
+          // >
+          //   {banner.text && (
+          //     <div
+          //       className={`  absolute flex flex-col gap-3 w-2/4 translate-x-[50%] text-center h-full items-center justify-center`}
+          //     >
+          //       <h3 className="text-4xl font-semibold">{banner.text.title}</h3>
+          //       <p className="text-xl">{banner.text.description}</p>
+          //     </div>
+          //   )}
+          // </div>
         ))}
       </div>
 

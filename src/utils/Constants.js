@@ -6,7 +6,7 @@ const bannerImg = [
     text: {
       title: "Bicycles for Adventures",
       description:
-        "We create the best Cycling Experiences of a lifetime.We can fit you with the perfect bike because we carry all sizes and types of bikes",
+        "We create the best Cycling Experiences of a lifetime. We can fit you with the perfect bike because we carry all sizes and types of bikes",
     },
   },
   {

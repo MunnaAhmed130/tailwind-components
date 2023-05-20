@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+import { bannerImg } from "../../utils/Constants";
 
 const Carousel3 = (autoSlide = false) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,31 +27,6 @@ const Carousel3 = (autoSlide = false) => {
     const slideInterval = setInterval(next, 5000);
     return () => clearInterval(slideInterval);
   }, [autoSlide, currentIndex]);
-
-  const bannerImg = [
-    {
-      id: 0,
-      src: "https://i.ibb.co/MNtH00X/luca-david-ia8u-TRs-ZZYY-unsplash.jpg",
-      blurHash:
-        "Y15OZ@~q004nogRPRkWV004n-;-;WBxuoLay?as.t8t8oLNGozofIUbIV@RjV@kCWBf6",
-      text: {
-        title: "Bicycles for Adventures",
-        description:
-          "We create the best Cycling Experiences of a lifetime. We can fit you with the perfect bike because we carry all sizes and types of bikes",
-      },
-    },
-    {
-      id: 1,
-      src: "https://i.ibb.co/hK5zTvv/background.png",
-      blurHash:
-        "Y15OZ@~q004nogRPRkWV004n-;-;WBxuoLay?as.t8t8oLNGozofIUbIV@RjV@kCWBf6",
-      text: {
-        title: "Bicycles for Adventures",
-        description:
-          "We create the best Cycling Experiences of a lifetime.We can fit you with the perfect bike because we carry all sizes and types of bikes",
-      },
-    },
-  ];
 
   //   const value = `translate-X-[-${currentIndex * 100}%]`;
   //   console.log(value);

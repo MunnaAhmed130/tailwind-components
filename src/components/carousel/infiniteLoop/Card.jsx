@@ -5,6 +5,7 @@ const Card = ({ prop }) => {
   const handleClick = () => {
     setEditable(!editable);
   };
+
   return (
     <div
       className="

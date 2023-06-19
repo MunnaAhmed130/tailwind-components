@@ -1,10 +1,13 @@
 import "./App.css";
-import FinalProject from "./components/carousel/finalProject/FinalProject";
+import FilterTags from "./components/filterTags/FilterTags";
+import MultiRangeSlider from "./components/multiRangeSlider/MultiRangeSlider";
 
 function App() {
   return (
     <>
-      <FinalProject />
+      {/* <FinalProject /> */}
+      <FilterTags />
+      {/* <MultiRangeSlider min={200} max={3500} /> */}
     </>
   );
 }

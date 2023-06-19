@@ -1,17 +1,10 @@
-import Carousel from "./components/carousel/Carousel";
-import Loop from "./components/carousel/infiniteLoop/loop";
 import "./App.css";
-import CustomSlider from "./components/customSlider/CustomSlider";
+import FinalProject from "./components/carousel/finalProject/FinalProject";
 
 function App() {
   return (
     <>
-      {/* <Carousel /> */}
-      {/* <Carousel2 /> */}
-      {/* <Carousel3 /> */}
-      {/* <FinalProject /> */}
-      {/* <Loop /> */}
-      <CustomSlider />
+      <FinalProject />
     </>
   );
 }

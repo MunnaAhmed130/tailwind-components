@@ -3,6 +3,8 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { bannerImg } from "../../utils/Constants";
 
+// this component is only for frame to frame transition
+
 const CarouselFrame = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 

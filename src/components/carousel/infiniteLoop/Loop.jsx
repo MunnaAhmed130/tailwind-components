@@ -1,5 +1,7 @@
 import Carousel from "./Carousel";
 
+// it is a infinite loop of 4 cards
+
 const Loop = () => {
   return (
     <div className="p-10">

@@ -3,6 +3,8 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { bannerImg } from "../../utils/Constants";
 
+// not smooth transition from image to image
+
 const Carousel2 = (autoSlide) => {
   const [curr, setCurr] = useState(0);
 

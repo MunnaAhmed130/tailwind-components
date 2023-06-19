@@ -3,6 +3,8 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { bannerImg } from "../../utils/Constants";
 
+// a simple component for fade and frame to frame transition
+
 const Carousel3 = (autoSlide = false) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,10 +33,10 @@ const Carousel3 = (autoSlide = false) => {
   //   const value = `translate-X-[-${currentIndex * 100}%]`;
   //   console.log(value);
 
-  const fade = true;
+  const fade = false;
 
   return (
-    <div className="h-screen w-full max-w-full relative group   ">
+    <div className="h-screen w-full max-w-full relative group   overflow-hidden">
       {!fade ? (
         <div
           className={`
